@@ -2,6 +2,11 @@
   "name": "rn-tooltip",
   "version": "0.0.1",
   "main": "Tooltip.js",
+  "homepage": "https://github.com/AndreiCalazans/rn-tooltip#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreiCalazans/rn-tooltip"
+  },
   "author": "AndreiCalazans <andreixoc@hotmail.com>",
   "license": "MIT",
   "scripts": {
