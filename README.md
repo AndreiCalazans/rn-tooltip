@@ -20,6 +20,10 @@ or
 ### Usage
 
 ```javascript
+import Tooltip from 'rn-tooltip';
+
+...
+
 <Tooltip tooltipWidth={200} tooltipText="Tooltip info goes here">
   <Text>Press me</Text>
 </Tooltip>
