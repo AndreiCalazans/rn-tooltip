@@ -4,7 +4,7 @@
 *Simple, lightwweight and **blazing fast** react native tooltip*
 
 
-<img src="./tooltipExample.gif" />
+<img src="./tooltipExample.gif" width='250' />
 
 
 ### Install
