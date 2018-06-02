@@ -50,9 +50,9 @@ import Tooltip from 'rn-tooltip';
 
 ---
 
-# Reference
+## Reference
 
-## `backgroundColor`
+### `backgroundColor`
 
 sets backgroundColor of the tooltip and pointer.
 
@@ -62,7 +62,7 @@ sets backgroundColor of the tooltip and pointer.
 
 ---
 
-## `containerStyle`
+### `containerStyle`
 
 Passes style object to tooltip container
 
@@ -72,7 +72,7 @@ Passes style object to tooltip container
 
 ---
 
-## `height`
+### `height`
 
 Tooltip container height. Necessary in order to render the container in the
 correct place. Pass height according to the size of the content rendered inside
@@ -84,7 +84,7 @@ the container.
 
 ---
 
-## `highlightColor`
+### `highlightColor`
 
 Color to highlight the item the tooltip is surrounding.
 
@@ -94,7 +94,7 @@ Color to highlight the item the tooltip is surrounding.
 
 ---
 
-## `onClose`
+### `onClose`
 
 function which gets called on closing the tooltip.
 
@@ -104,7 +104,7 @@ function which gets called on closing the tooltip.
 
 ---
 
-## `onOpen`
+### `onOpen`
 
 function which gets called on opening the tooltip.
 
@@ -114,7 +114,7 @@ function which gets called on opening the tooltip.
 
 ---
 
-## `pointerColor`
+### `pointerColor`
 
 Color of tooltip pointer, it defaults to the
 [`backgroundColor`](#backgroundcolor) if none is passed .
@@ -125,7 +125,7 @@ Color of tooltip pointer, it defaults to the
 
 ---
 
-## `popover`
+### `popover`
 
 Component to be rendered as the display container.
 
@@ -135,7 +135,7 @@ Component to be rendered as the display container.
 
 ---
 
-## `toggleOnPress`
+### `toggleOnPress`
 
 Flag to determine to toggle or not the tooltip on press.
 
@@ -145,7 +145,7 @@ Flag to determine to toggle or not the tooltip on press.
 
 ---
 
-## `width`
+### `width`
 
 Tooltip container width. Necessary in order to render the container in the
 correct place. Pass height according to the size of the content rendered inside
@@ -155,7 +155,7 @@ the container.
 | :----: | :-----: |
 | number |   150   |
 
-## `withOverlay`
+### `withOverlay`
 
 Flag to determine whether or not dislay overlay shadow when tooltip is open.
 
@@ -163,7 +163,7 @@ Flag to determine whether or not dislay overlay shadow when tooltip is open.
 | :-----: | :-----: |
 | boolean |  true   |
 
-## `withPointer`
+### `withPointer`
 
 Flag to determine whether or not dislay pointer.
 
