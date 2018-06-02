@@ -1,4 +1,7 @@
 
+[![npm version](https://badge.fury.io/js/rn-tooltip.svg)](https://badge.fury.io/js/rn-tooltip)
+
+
 ### rn-tooltip
 
 *Simple, lightwweight and **blazing fast** react native tooltip*
