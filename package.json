@@ -1,7 +1,7 @@
 {
   "name": "rn-tooltip",
   "version": "0.0.2",
-  "main": "Tooltip.js",
+  "main": "src/Tooltip.js",
   "homepage": "https://github.com/AndreiCalazans/rn-tooltip#readme",
   "repository": {
     "type": "git",
@@ -19,6 +19,9 @@
     "flow": "node_modules/.bin/flow check",
     "flow-typed": "rm -rf flow-typed/npm && node_modules/.bin/flow-typed install",
     "flow-log": "yarn flow --show-all-errors > flow.log",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "lint": "node_modules/.bin/eslint src --max-warnings=0"
   },
   "lint-staged": {
@@ -28,7 +31,21 @@
       "git add"
     ]
   },
-  "dependencies": {},
+  "jest": {
+    "preset": "react-native",
+    "coverageDirectory": "./coverage/",
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
+    "collectCoverage": true,
+    "globals": {
+      "__DEV__": true
+    }
+  },
+  "dependencies": {
+    "react": "^16.4.0",
+    "react-native": "^0.55.4"
+  },
   "devDependencies": {
     "@commitlint/cli": "^6.1.3",
     "@commitlint/config-conventional": "^6.1.3",
@@ -41,8 +58,10 @@
     "flow-bin": "0.67",
     "flow-typed": "^2.4.0",
     "husky": "0.14.3",
+    "jest": "^23.1.0",
     "lint-staged": "6.0.0",
     "prettier": "^1.9.2",
-    "prop-types": "^15.6.1"
+    "prop-types": "^15.6.1",
+    "react-test-renderer": "^16.4.0"
   }
 }
