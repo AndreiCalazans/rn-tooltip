@@ -215,7 +215,7 @@ Tooltip.propTypes = {
   popover: PropTypes.element,
   toggleOnPress: PropTypes.bool,
   height: PropTypes.number,
-  width: PropTypes.oneOf([PropTypes.number, PropTypes.string]),
+  width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   containerStyle: ViewPropTypes.style,
   pointerColor: PropTypes.string,
   onClose: PropTypes.func,
