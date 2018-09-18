@@ -169,16 +169,31 @@ class Tooltip extends React.Component<Props, State> {
   }
 
   getElementPosition = (event) => {
-    this.renderedElement && this.renderedElement.measure(
-      (frameOffsetX, frameOffsetY, width, height, pageOffsetX, pageOffsetY) => {
-        this.setState({
-          xOffset: pageOffsetX,
-          yOffset: pageOffsetY,
-          elementWidth: width,
-          elementHeight: height,
-        });
-      }
-    );
+    const {noStatusBar} = this.props
+    if( noStatusBar ){
+      this.renderedElement && this.renderedElement.measure(
+        (frameOffsetX, frameOffsetY, width, height, pageOffsetX, pageOffsetY) => {
+          this.setState({
+            xOffset: pageOffsetX,
+            yOffset: pageOffsetY - 24,
+            elementWidth: width,
+            elementHeight: height,
+          });
+        }
+      );
+    }else{
+      this.renderedElement && this.renderedElement.measure(
+        (frameOffsetX, frameOffsetY, width, height, pageOffsetX, pageOffsetY) => {
+          this.setState({
+            xOffset: pageOffsetX,
+            yOffset: pageOffsetY,
+            elementWidth: width,
+            elementHeight: height,
+          });
+        }
+      );
+    }
+   
   };
 
   render() {
@@ -223,6 +238,7 @@ Tooltip.propTypes = {
   withOverlay: PropTypes.bool,
   backgroundColor: PropTypes.string,
   highlightColor: PropTypes.string,
+  noStatusBar:PropTypes.bool,
 };
 
 Tooltip.defaultProps = {
@@ -234,6 +250,7 @@ Tooltip.defaultProps = {
   width: 150,
   containerStyle: {},
   backgroundColor: '#617080',
+  noStatusBar:false,
   onClose: () => {},
   onOpen: () => {},
 };
