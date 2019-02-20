@@ -35,6 +35,7 @@ type Props = {
   onClose: () => void,
   onOpen: () => void,
   withOverlay: boolean,
+  overlayColor: string,
   backgroundColor: string,
   highlightColor: string,
 };
@@ -183,7 +184,7 @@ class Tooltip extends React.Component<Props, State> {
 
   render() {
     const { isVisible } = this.state;
-    const { onClose, withOverlay, onOpen } = this.props;
+    const { onClose, withOverlay, onOpen, overlayColor } = this.props;
 
     return (
       <View collapsable={false} ref={e => (this.renderedElement = e)}>
@@ -197,7 +198,7 @@ class Tooltip extends React.Component<Props, State> {
           onRequestClose={onClose}
         >
           <TouchableOpacity
-            style={styles.container(withOverlay)}
+            style={styles.container(withOverlay, overlayColor)}
             onPress={this.toggleTooltip}
             activeOpacity={1}
           >
@@ -221,6 +222,7 @@ Tooltip.propTypes = {
   onClose: PropTypes.func,
   onOpen: PropTypes.func,
   withOverlay: PropTypes.bool,
+  overlayColor: PropTypes.string,
   backgroundColor: PropTypes.string,
   highlightColor: PropTypes.string,
 };
@@ -239,8 +241,8 @@ Tooltip.defaultProps = {
 };
 
 const styles = {
-  container: withOverlay => ({
-    backgroundColor: withOverlay ? 'rgba(250, 250, 250, 0.70)' : 'transparent',
+  container: (withOverlay, overlayColor) => ({
+    backgroundColor: withOverlay ? (overlayColor ? overlayColor : 'rgba(250, 250, 250, 0.70)') : 'transparent',
     flex: 1,
   }),
 };
