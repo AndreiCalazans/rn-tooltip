@@ -3,3 +3,5 @@ yarn-error.log
 .vscode
 /TooltipExample
 /coverage
+/__tests__
+/tooltipExample.gif
