@@ -46,6 +46,7 @@ import Tooltip from 'rn-tooltip';
 * [`toggleOnPress`](#toggleOnPress)
 * [`width`](#width)
 * [`withOverlay`](#withOverlay)
+* [`overlayColor`](#withOverlay)
 * [`withPointer`](#withPointer)
 
 ---
@@ -162,6 +163,14 @@ Flag to determine whether or not dislay overlay shadow when tooltip is open.
 |  Type   | Default |
 | :-----: | :-----: |
 | boolean |  true   |
+
+### `overlayColor`
+
+Sets backgroundColor of the overlay.
+
+|  Type   | Default |
+| :-----: | :-----: |
+| string  |  rgba(250, 250, 250, 0.70)   |
 
 ### `withPointer`
 
