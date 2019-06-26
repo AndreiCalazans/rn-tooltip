@@ -7,7 +7,6 @@ import {
   View,
   ViewPropTypes as RNViewPropTypes,
 } from 'react-native';
-import NativeMethodsMixin from 'react-native/Libraries/Renderer/shims/NativeMethodsMixin';
 import PropTypes from 'prop-types';
 
 import Triangle from './Triangle';
@@ -169,17 +168,18 @@ class Tooltip extends React.Component<Props, State> {
     setTimeout(this.getElementPosition, 500);
   }
 
-  getElementPosition = (event) => {
-    this.renderedElement && this.renderedElement.measure(
-      (frameOffsetX, frameOffsetY, width, height, pageOffsetX, pageOffsetY) => {
-        this.setState({
-          xOffset: pageOffsetX,
-          yOffset: pageOffsetY,
-          elementWidth: width,
-          elementHeight: height,
-        });
-      }
-    );
+  getElementPosition = () => {
+    this.renderedElement &&
+      this.renderedElement.measureInWindow(
+        (pageOffsetX, pageOffsetY, width, height) => {
+          this.setState({
+            xOffset: pageOffsetX,
+            yOffset: pageOffsetY,
+            elementWidth: width,
+            elementHeight: height,
+          });
+        },
+      );
   };
 
   render() {
@@ -242,7 +242,11 @@ Tooltip.defaultProps = {
 
 const styles = {
   container: (withOverlay, overlayColor) => ({
-    backgroundColor: withOverlay ? (overlayColor ? overlayColor : 'rgba(250, 250, 250, 0.70)') : 'transparent',
+    backgroundColor: withOverlay
+      ? overlayColor
+        ? overlayColor
+        : 'rgba(250, 250, 250, 0.70)'
+      : 'transparent',
     flex: 1,
   }),
 };
