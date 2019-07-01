@@ -9,6 +9,9 @@
 
 <img src="./tooltipExample.gif" width='250' />
 
+Expo App if you want to try it out: https://expo.io/@andreixoc/RNTooltipTester
+
+Code for the Expo app is here: https://github.com/andreiCalazans/rnTooltipTester
 
 ## Install
 
