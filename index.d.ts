@@ -5,8 +5,8 @@ type Props = {
   popover?: React.ReactElement<{}>;
   withPointer?: boolean,
   toggleOnPress?: boolean,
-  height?: number,
-  width?: number,
+  height?: number | string,
+  width?: number | string,
   containerStyle?: StyleProp<ViewStyle>;
   pointerColor?: string,
   onClose?: () => void,

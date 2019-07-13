@@ -84,7 +84,7 @@ the container.
 
 |  Type  | Default |
 | :----: | :-----: |
-| number |   40    |
+| number | string |   40    |
 
 ---
 
@@ -157,7 +157,7 @@ the container.
 
 |  Type  | Default |
 | :----: | :-----: |
-| number |   150   |
+| number | number |   150   |
 
 ### `withOverlay`
 
