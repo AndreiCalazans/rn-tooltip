@@ -1,4 +1,17 @@
 //  @flow
+import { Dimensions } from 'react-native';
+
+function convertDimensionToNumber(dimension, screenDimension) {
+  if (typeof dimension === 'string' && dimension.includes('%')) {
+    const decimal = Number(dimension.replace(/%/, '')) / 100;
+    return decimal * screenDimension;
+  }
+
+  if (typeof dimension === 'number') {
+    return dimension;
+  }
+  return Number(dimension);
+}
 
 const getArea = (a: number, b: number): number => a * b;
 
@@ -34,10 +47,20 @@ const getTooltipCoordinate = (
   height: number,
   ScreenWidth: number,
   ScreenHeight: number,
-  tooltipWidth: number,
-  tooltipHeight: number,
+  receivedTooltipWidth: number | string,
+  receivedTooltipHeight: number | string,
   withPointer: boolean,
 ): Coord => {
+  const screenDims = Dimensions.get('screen');
+
+  const tooltipWidth = convertDimensionToNumber(
+    receivedTooltipWidth,
+    screenDims.width,
+  );
+  const tooltipHeight = convertDimensionToNumber(
+    receivedTooltipHeight,
+    screenDims.height,
+  );
   // The following are point coordinates: [x, y]
   const center = [x + width / 2, y + height / 2];
   const pOne = [center[0], 0];
