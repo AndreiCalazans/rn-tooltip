@@ -51,6 +51,7 @@ import Tooltip from 'rn-tooltip';
 * [`withOverlay`](#withOverlay)
 * [`overlayColor`](#withOverlay)
 * [`withPointer`](#withPointer)
+* [`toggleWrapperProps`](#toggleWrapperProps)
 
 ---
 
@@ -182,5 +183,14 @@ Flag to determine whether or not dislay pointer.
 |  Type   | Default |
 | :-----: | :-----: |
 | boolean |  true   |
+
+### `toggleWrapperProps`
+
+Drills TouchableOpacity Props down to the TouchableOpacity wrapper that toggles the Tooltip.
+
+|      Type      |      Default      |
+| :------------: | :---------------: |
+| TouchableOpacityProps | {} |
+
 
 **MIT Licensed**
