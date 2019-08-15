@@ -6,6 +6,7 @@ import {
   Modal,
   View,
   ViewPropTypes as RNViewPropTypes,
+  TouchableOpacityProps as RNTouchableOpacityProps,
 } from 'react-native';
 import PropTypes from 'prop-types';
 
@@ -14,6 +15,7 @@ import { ScreenWidth, ScreenHeight, isIOS } from './helpers';
 import getTooltipCoordinate from './getTooltipCoordinate';
 
 const ViewPropTypes = RNViewPropTypes || View.propTypes;
+const TouchableOpacityProps = RNTouchableOpacityProps || TouchableOpacity.propTypes;
 
 type State = {
   isVisible: boolean,
@@ -37,7 +39,7 @@ type Props = {
   overlayColor: string,
   backgroundColor: string,
   highlightColor: string,
-};
+} & TouchableOpacityProps;
 
 class Tooltip extends React.Component<Props, State> {
   state = {
@@ -65,7 +67,7 @@ class Tooltip extends React.Component<Props, State> {
   wrapWithPress = (toggleOnPress, children) => {
     if (toggleOnPress) {
       return (
-        <TouchableOpacity onPress={this.toggleTooltip} activeOpacity={1}>
+        <TouchableOpacity onPress={this.toggleTooltip} activeOpacity={1} {...this.props}>
           {children}
         </TouchableOpacity>
       );
