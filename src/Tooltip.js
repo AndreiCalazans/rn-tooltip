@@ -37,6 +37,7 @@ type Props = {
   overlayColor: string,
   backgroundColor: string,
   highlightColor: string,
+  toggleWrapperProps: {},
 };
 
 class Tooltip extends React.Component<Props, State> {
@@ -65,7 +66,11 @@ class Tooltip extends React.Component<Props, State> {
   wrapWithPress = (toggleOnPress, children) => {
     if (toggleOnPress) {
       return (
-        <TouchableOpacity onPress={this.toggleTooltip} activeOpacity={1}>
+        <TouchableOpacity
+          onPress={this.toggleTooltip}
+          activeOpacity={1}
+          {...this.props.toggleWrapperProps}
+        >
           {children}
         </TouchableOpacity>
       );
@@ -222,12 +227,14 @@ Tooltip.propTypes = {
   onClose: PropTypes.func,
   onOpen: PropTypes.func,
   withOverlay: PropTypes.bool,
+  toggleWrapperProps: PropTypes.object,
   overlayColor: PropTypes.string,
   backgroundColor: PropTypes.string,
   highlightColor: PropTypes.string,
 };
 
 Tooltip.defaultProps = {
+  toggleWrapperProps: {},
   withOverlay: true,
   highlightColor: 'transparent',
   withPointer: true,

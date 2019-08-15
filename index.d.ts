@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleProp, ViewStyle } from 'react-native';
+import { StyleProp, ViewStyle, TouchableOpacityProps } from 'react-native';
 
 type Props = {
   popover?: React.ReactElement<{}>;
@@ -15,6 +15,7 @@ type Props = {
   overlayColor?: string,
   backgroundColor?: string,
   highlightColor?: string,
+  toggleWrapperProps?: TouchableOpacityProps,
 };
 
 export default class Tooltip extends React.Component<Props, any> {
