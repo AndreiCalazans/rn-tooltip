@@ -1,0 +1,22 @@
+on:
+- push
+
+name: 'Validate Code'
+jobs:
+  chore:
+    name: 'Validate Codebase'
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@master
+
+    - name: 'Use Node.js 10.x'
+      uses: actions/setup-node@master
+      with:
+        version: 10.x
+
+    - name: 'Lint and Test'
+      run: |
+        yarn prettier:check
+        yarn lint
+        yarn test
