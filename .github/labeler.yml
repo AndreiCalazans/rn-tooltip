@@ -1,5 +1,3 @@
-enhancement:
-- src/**/*
+enhancement: src/*
 
-has_test:
-- _tests_/**/*
+has_test: _tests_/*
