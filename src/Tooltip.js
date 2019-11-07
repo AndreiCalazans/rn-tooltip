@@ -106,7 +106,7 @@ class Tooltip extends React.Component<Props, State> {
       left: x,
       top: y,
       minWidth: width,
-      height,
+      minHeight: height,
       backgroundColor,
       // default styles
       display: 'flex',
