@@ -26,7 +26,6 @@ type State = {
 type Props = {
   withPointer: boolean,
   popover: React.Element,
-  toggleOnPress: boolean,
   height: number | string,
   width: number | string,
   containerStyle: any,
@@ -38,6 +37,7 @@ type Props = {
   backgroundColor: string,
   highlightColor: string,
   toggleWrapperProps: {},
+  actionType: 'press' | 'longPress',
 };
 
 class Tooltip extends React.Component<Props, State> {
@@ -63,11 +63,21 @@ class Tooltip extends React.Component<Props, State> {
     });
   };
 
-  wrapWithPress = (toggleOnPress, children) => {
-    if (toggleOnPress) {
+  wrapWithAction = (actionType, children) => {
+    if (actionType === 'press') {
       return (
         <TouchableOpacity
           onPress={this.toggleTooltip}
+          activeOpacity={1}
+          {...this.props.toggleWrapperProps}
+        >
+          {children}
+        </TouchableOpacity>
+      );
+    } else if (actionType === 'longPress') {
+      return (
+        <TouchableOpacity
+          onLongPress={this.toggleTooltip}
           activeOpacity={1}
           {...this.props.toggleWrapperProps}
         >
@@ -140,10 +150,10 @@ class Tooltip extends React.Component<Props, State> {
     );
   };
   renderContent = withTooltip => {
-    const { popover, withPointer, toggleOnPress, highlightColor } = this.props;
+    const { popover, withPointer, highlightColor, actionType } = this.props;
 
     if (!withTooltip)
-      return this.wrapWithPress(toggleOnPress, this.props.children);
+      return this.wrapWithAction(actionType, this.props.children);
 
     const { yOffset, xOffset, elementWidth, elementHeight } = this.state;
     const tooltipStyle = this.getTooltipStyle();
@@ -219,7 +229,6 @@ Tooltip.propTypes = {
   children: PropTypes.element,
   withPointer: PropTypes.bool,
   popover: PropTypes.element,
-  toggleOnPress: PropTypes.bool,
   height: PropTypes.number,
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   containerStyle: ViewPropTypes.style,
@@ -231,6 +240,7 @@ Tooltip.propTypes = {
   overlayColor: PropTypes.string,
   backgroundColor: PropTypes.string,
   highlightColor: PropTypes.string,
+  actionType: PropTypes.oneOf(['press', 'longPress']),
 };
 
 Tooltip.defaultProps = {
@@ -238,7 +248,7 @@ Tooltip.defaultProps = {
   withOverlay: true,
   highlightColor: 'transparent',
   withPointer: true,
-  toggleOnPress: true,
+  actionType: 'press',
   height: 40,
   width: 150,
   containerStyle: {},
