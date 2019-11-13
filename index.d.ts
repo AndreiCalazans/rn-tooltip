@@ -15,7 +15,7 @@ type Props = {
   backgroundColor?: string,
   highlightColor?: string,
   toggleWrapperProps?: TouchableOpacityProps,
-  actionType: 'press' | 'longPress'
+  actionType: 'press' | 'longPress' | 'none'
 };
 
 export default class Tooltip extends React.Component<Props, any> {
