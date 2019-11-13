@@ -37,7 +37,7 @@ type Props = {
   backgroundColor: string,
   highlightColor: string,
   toggleWrapperProps: {},
-  actionType: 'press' | 'longPress',
+  actionType: 'press' | 'longPress' | 'none',
 };
 
 class Tooltip extends React.Component<Props, State> {
@@ -64,29 +64,30 @@ class Tooltip extends React.Component<Props, State> {
   };
 
   wrapWithAction = (actionType, children) => {
-    if (actionType === 'press') {
-      return (
-        <TouchableOpacity
-          onPress={this.toggleTooltip}
-          activeOpacity={1}
-          {...this.props.toggleWrapperProps}
-        >
-          {children}
-        </TouchableOpacity>
-      );
-    } else if (actionType === 'longPress') {
-      return (
-        <TouchableOpacity
-          onLongPress={this.toggleTooltip}
-          activeOpacity={1}
-          {...this.props.toggleWrapperProps}
-        >
-          {children}
-        </TouchableOpacity>
-      );
+    switch (actionType) {
+      case 'press':
+        return (
+          <TouchableOpacity
+            onPress={this.toggleTooltip}
+            activeOpacity={1}
+            {...this.props.toggleWrapperProps}
+          >
+            {children}
+          </TouchableOpacity>
+        );
+      case 'longPress':
+        return (
+          <TouchableOpacity
+            onLongPress={this.toggleTooltip}
+            activeOpacity={1}
+            {...this.props.toggleWrapperProps}
+          >
+            {children}
+          </TouchableOpacity>
+        );
+      default:
+        return { children };
     }
-
-    return children;
   };
 
   getTooltipStyle = () => {
@@ -240,7 +241,7 @@ Tooltip.propTypes = {
   overlayColor: PropTypes.string,
   backgroundColor: PropTypes.string,
   highlightColor: PropTypes.string,
-  actionType: PropTypes.oneOf(['press', 'longPress']),
+  actionType: PropTypes.oneOf(['press', 'longPress', 'none']),
 };
 
 Tooltip.defaultProps = {
