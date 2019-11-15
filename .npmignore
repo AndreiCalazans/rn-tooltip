@@ -1,6 +1,7 @@
 /node_modules
 yarn-error.log
 .vscode
+.github
 /TooltipExample
 /coverage
 /__tests__
