@@ -8,6 +8,7 @@ type Props = {
   width?: number | string,
   containerStyle?: StyleProp<ViewStyle>;
   pointerColor?: string,
+  pointerStyle?: StyleProp<ViewStyle>,
   onClose?: () => void,
   onOpen?: () => void,
   withOverlay?: boolean,

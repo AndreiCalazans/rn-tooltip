@@ -30,6 +30,7 @@ type Props = {
   width: number | string,
   containerStyle: any,
   pointerColor: string,
+  pointerStyle: {},
   onClose: () => void,
   onOpen: () => void,
   withOverlay: boolean,
@@ -132,7 +133,7 @@ class Tooltip extends React.Component<Props, State> {
 
   renderPointer = tooltipY => {
     const { yOffset, xOffset, elementHeight, elementWidth } = this.state;
-    const { backgroundColor, pointerColor } = this.props;
+    const { backgroundColor, pointerColor, pointerStyle } = this.props;
     const pastMiddleLine = yOffset > tooltipY;
 
     return (
@@ -144,7 +145,10 @@ class Tooltip extends React.Component<Props, State> {
         }}
       >
         <Triangle
-          style={{ borderBottomColor: pointerColor || backgroundColor }}
+          style={{
+            borderBottomColor: pointerColor || backgroundColor,
+            ...pointerStyle,
+          }}
           isDown={pastMiddleLine}
         />
       </View>
@@ -234,6 +238,7 @@ Tooltip.propTypes = {
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   containerStyle: ViewPropTypes.style,
   pointerColor: PropTypes.string,
+  pointerStyle: PropTypes.object,
   onClose: PropTypes.func,
   onOpen: PropTypes.func,
   withOverlay: PropTypes.bool,
@@ -253,6 +258,7 @@ Tooltip.defaultProps = {
   height: 40,
   width: 150,
   containerStyle: {},
+  pointerStyle: {},
   backgroundColor: '#617080',
   onClose: () => {},
   onOpen: () => {},
