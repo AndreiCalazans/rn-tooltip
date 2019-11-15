@@ -86,7 +86,7 @@ class Tooltip extends React.Component<Props, State> {
           </TouchableOpacity>
         );
       default:
-        return { children };
+        return children;
     }
   };
 

@@ -46,7 +46,7 @@ import Tooltip from 'rn-tooltip';
 * [`onOpen`](#onOpen)
 * [`pointerColor`](#pointerColor)
 * [`popover`](#popover)
-* [`toggleOnPress`](#toggleOnPress)
+* [`actionType`](#actionType)
 * [`width`](#width)
 * [`withOverlay`](#withOverlay)
 * [`overlayColor`](#withOverlay)
@@ -140,13 +140,13 @@ Component to be rendered as the display container.
 
 ---
 
-### `toggleOnPress`
+### `actionType`
 
-Flag to determine to toggle or not the tooltip on press.
+Flag to determine how the tooltip reacts to presses.
 
 |  Type   | Default |
-| :-----: | :-----: |
-| boolean |  true   |
+| :-----: | press |
+| Enum |  none or  press or longPress  |
 
 ---
 
