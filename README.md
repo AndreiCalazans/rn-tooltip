@@ -45,6 +45,7 @@ import Tooltip from 'rn-tooltip';
 * [`onClose`](#onClose)
 * [`onOpen`](#onOpen)
 * [`pointerColor`](#pointerColor)
+* [`pointerStyle`](#pointerStyle)
 * [`popover`](#popover)
 * [`actionType`](#actionType)
 * [`width`](#width)
@@ -130,6 +131,14 @@ Color of tooltip pointer, it defaults to the
 
 ---
 
+### `pointerStyle`
+
+Passes style object to tooltip pointer view
+
+|      Type      |      Default      |
+| :------------: | :---------------: |
+| object (style) | inherited styling |
+
 ### `popover`
 
 Component to be rendered as the display container.
@@ -145,8 +154,8 @@ Component to be rendered as the display container.
 Flag to determine how the tooltip reacts to presses.
 
 |  Type   | Default |
-| :-----: | press |
-| Enum |  none or  press or longPress  |
+| :-----: | :-----: |
+| press or none or longPress | press |
 
 ---
 
