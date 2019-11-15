@@ -26,7 +26,6 @@ type State = {
 type Props = {
   withPointer: boolean,
   popover: React.Element,
-  toggleOnPress: boolean,
   height: number | string,
   width: number | string,
   containerStyle: any,
@@ -38,6 +37,7 @@ type Props = {
   backgroundColor: string,
   highlightColor: string,
   toggleWrapperProps: {},
+  actionType: 'press' | 'longPress' | 'none',
 };
 
 class Tooltip extends React.Component<Props, State> {
@@ -63,20 +63,31 @@ class Tooltip extends React.Component<Props, State> {
     });
   };
 
-  wrapWithPress = (toggleOnPress, children) => {
-    if (toggleOnPress) {
-      return (
-        <TouchableOpacity
-          onPress={this.toggleTooltip}
-          activeOpacity={1}
-          {...this.props.toggleWrapperProps}
-        >
-          {children}
-        </TouchableOpacity>
-      );
+  wrapWithAction = (actionType, children) => {
+    switch (actionType) {
+      case 'press':
+        return (
+          <TouchableOpacity
+            onPress={this.toggleTooltip}
+            activeOpacity={1}
+            {...this.props.toggleWrapperProps}
+          >
+            {children}
+          </TouchableOpacity>
+        );
+      case 'longPress':
+        return (
+          <TouchableOpacity
+            onLongPress={this.toggleTooltip}
+            activeOpacity={1}
+            {...this.props.toggleWrapperProps}
+          >
+            {children}
+          </TouchableOpacity>
+        );
+      default:
+        return { children };
     }
-
-    return children;
   };
 
   getTooltipStyle = () => {
@@ -140,10 +151,10 @@ class Tooltip extends React.Component<Props, State> {
     );
   };
   renderContent = withTooltip => {
-    const { popover, withPointer, toggleOnPress, highlightColor } = this.props;
+    const { popover, withPointer, highlightColor, actionType } = this.props;
 
     if (!withTooltip)
-      return this.wrapWithPress(toggleOnPress, this.props.children);
+      return this.wrapWithAction(actionType, this.props.children);
 
     const { yOffset, xOffset, elementWidth, elementHeight } = this.state;
     const tooltipStyle = this.getTooltipStyle();
@@ -219,7 +230,6 @@ Tooltip.propTypes = {
   children: PropTypes.element,
   withPointer: PropTypes.bool,
   popover: PropTypes.element,
-  toggleOnPress: PropTypes.bool,
   height: PropTypes.number,
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   containerStyle: ViewPropTypes.style,
@@ -231,6 +241,7 @@ Tooltip.propTypes = {
   overlayColor: PropTypes.string,
   backgroundColor: PropTypes.string,
   highlightColor: PropTypes.string,
+  actionType: PropTypes.oneOf(['press', 'longPress', 'none']),
 };
 
 Tooltip.defaultProps = {
@@ -238,7 +249,7 @@ Tooltip.defaultProps = {
   withOverlay: true,
   highlightColor: 'transparent',
   withPointer: true,
-  toggleOnPress: true,
+  actionType: 'press',
   height: 40,
   width: 150,
   containerStyle: {},
