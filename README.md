@@ -53,6 +53,7 @@ import Tooltip from 'rn-tooltip';
 * [`overlayColor`](#withOverlay)
 * [`withPointer`](#withPointer)
 * [`toggleWrapperProps`](#toggleWrapperProps)
+* [`onRequestClose`](#onRequestClose)
 
 ---
 
@@ -200,6 +201,14 @@ Drills TouchableOpacity Props down to the TouchableOpacity wrapper that toggles 
 |      Type      |      Default      |
 | :------------: | :---------------: |
 | TouchableOpacityProps | {} |
+
+### `onRequestClose`
+
+Used on Android, this is called when back button is pressed on android.
+
+|  Type   | Default |
+| :-----: | :-----: |
+| function |  undefined  |
 
 
 **MIT Licensed**
