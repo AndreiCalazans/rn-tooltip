@@ -33,6 +33,7 @@ type Props = {
   pointerStyle: {},
   onClose: () => void,
   onOpen: () => void,
+  onRequestClose: () => void,
   withOverlay: boolean,
   overlayColor: string,
   backgroundColor: string,
@@ -202,6 +203,15 @@ class Tooltip extends React.Component<Props, State> {
       );
   };
 
+  onRequestClose = () => {
+    const { onRequestClose } = this.props;
+    if (onRequestClose) {
+      onRequestClose();
+    } else {
+      this.toggleTooltip();
+    }
+  };
+
   render() {
     const { isVisible } = this.state;
     const { onClose, withOverlay, onOpen, overlayColor } = this.props;
@@ -215,7 +225,7 @@ class Tooltip extends React.Component<Props, State> {
           transparent
           onDismiss={onClose}
           onShow={onOpen}
-          onRequestClose={onClose}
+          onRequestClose={this.onRequestClose}
         >
           <TouchableOpacity
             style={styles.container(withOverlay, overlayColor)}
