@@ -51,6 +51,7 @@ class Tooltip extends React.Component<Props, State> {
   };
 
   renderedElement;
+  timeout;
 
   toggleTooltip = () => {
     const { onClose } = this.props;
@@ -185,7 +186,11 @@ class Tooltip extends React.Component<Props, State> {
 
   componentDidMount() {
     // wait to compute onLayout values.
-    setTimeout(this.getElementPosition, 500);
+    this.timeout = setTimeout(this.getElementPosition, 500);
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.timeout);
   }
 
   getElementPosition = () => {
