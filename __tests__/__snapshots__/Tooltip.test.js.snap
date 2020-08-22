@@ -62,6 +62,7 @@ exports[`Tooltip component should display tooltip on longPress 1`] = `
               "left": 0,
               "overflow": "visible",
               "position": "absolute",
+              "right": null,
               "top": 0,
               "width": 0,
             }
@@ -80,6 +81,7 @@ exports[`Tooltip component should display tooltip on longPress 1`] = `
             Object {
               "left": -7.5,
               "position": "absolute",
+              "right": null,
               "top": -2,
             }
           }
@@ -120,6 +122,7 @@ exports[`Tooltip component should display tooltip on longPress 1`] = `
               "left": -17.999,
               "padding": 10,
               "position": "absolute",
+              "right": null,
               "top": 10,
               "width": 200,
             }
@@ -201,6 +204,7 @@ exports[`Tooltip component should display tooltip when no actionType is provided
               "left": 0,
               "overflow": "visible",
               "position": "absolute",
+              "right": null,
               "top": 0,
               "width": 0,
             }
@@ -219,6 +223,7 @@ exports[`Tooltip component should display tooltip when no actionType is provided
             Object {
               "left": -7.5,
               "position": "absolute",
+              "right": null,
               "top": -2,
             }
           }
@@ -259,6 +264,7 @@ exports[`Tooltip component should display tooltip when no actionType is provided
               "left": -17.999,
               "padding": 10,
               "position": "absolute",
+              "right": null,
               "top": 10,
               "width": 200,
             }
@@ -340,6 +346,7 @@ exports[`Tooltip component should render without issues 1`] = `
               "left": 0,
               "overflow": "visible",
               "position": "absolute",
+              "right": null,
               "top": 0,
               "width": 0,
             }
@@ -358,6 +365,7 @@ exports[`Tooltip component should render without issues 1`] = `
             Object {
               "left": -7.5,
               "position": "absolute",
+              "right": null,
               "top": -2,
             }
           }
@@ -398,6 +406,7 @@ exports[`Tooltip component should render without issues 1`] = `
               "left": -17.999,
               "padding": 10,
               "position": "absolute",
+              "right": null,
               "top": 10,
               "width": 150,
             }
