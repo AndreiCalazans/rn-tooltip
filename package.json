@@ -1,6 +1,6 @@
 {
   "name": "rn-tooltip",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "main": "src/Tooltip.js",
   "homepage": "https://github.com/AndreiCalazans/rn-tooltip#readme",
   "repository": {
