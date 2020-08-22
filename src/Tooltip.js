@@ -6,6 +6,7 @@ import {
   Modal,
   View,
   ViewPropTypes as RNViewPropTypes,
+  I18nManager,
 } from 'react-native';
 import PropTypes from 'prop-types';
 
@@ -116,7 +117,8 @@ class Tooltip extends React.Component<Props, State> {
 
     return {
       position: 'absolute',
-      left: x,
+      left: I18nManager.isRTL ? null : x,
+      right: I18nManager.isRTL ? x : null,
       top: y,
       width,
       height,
@@ -142,7 +144,8 @@ class Tooltip extends React.Component<Props, State> {
         style={{
           position: 'absolute',
           top: pastMiddleLine ? yOffset - 13 : yOffset + elementHeight - 2,
-          left: xOffset + elementWidth / 2 - 7.5,
+          left: I18nManager.isRTL ? null : xOffset + elementWidth / 2 - 7.5,
+          right: I18nManager.isRTL ? xOffset + elementWidth / 2 - 7.5 : null,
         }}
       >
         <Triangle
@@ -169,7 +172,8 @@ class Tooltip extends React.Component<Props, State> {
           style={{
             position: 'absolute',
             top: yOffset,
-            left: xOffset,
+            left: I18nManager.isRTL ? null : xOffset,
+            right: I18nManager.isRTL ? xOffset : null,
             backgroundColor: highlightColor,
             overflow: 'visible',
             width: elementWidth,
