@@ -243,7 +243,7 @@ Tooltip.propTypes = {
   children: PropTypes.element,
   withPointer: PropTypes.bool,
   popover: PropTypes.element,
-  height: PropTypes.number,
+  height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   containerStyle: ViewPropTypes.style,
   pointerColor: PropTypes.string,
