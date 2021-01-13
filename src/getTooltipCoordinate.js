@@ -2,8 +2,6 @@
 import { Dimensions } from 'react-native';
 
 function convertDimensionToNumber(dimension, screenDimension) {
-  if (dimension === 'auto') return 0;
-
   if (typeof dimension === 'string' && dimension.includes('%')) {
     const decimal = Number(dimension.replace(/%/, '')) / 100;
     return decimal * screenDimension;
@@ -30,7 +28,7 @@ type Coord = {
   The tooltip coordinates are based on the element which it is wrapping.
   We take the x and y coordinates of the element and find the best position
   to place the tooltip. To find the best position we look for the side with the
-  most space. In order to find the side with the most space we divide the the 
+  most space. In order to find the side with the most space we divide the the
   surroundings in four quadrants and check for the one with biggest area.
   Once we know the quandrant with the biggest area it place the tooltip in that
   direction.
@@ -50,7 +48,6 @@ const getTooltipCoordinate = (
   ScreenWidth: number,
   ScreenHeight: number,
   receivedTooltipWidth: number | string,
-  receivedTooltipHeight: number | string,
   withPointer: boolean,
 ): Coord => {
   const screenDims = Dimensions.get('screen');
@@ -58,10 +55,6 @@ const getTooltipCoordinate = (
   const tooltipWidth = convertDimensionToNumber(
     receivedTooltipWidth,
     screenDims.width,
-  );
-  const tooltipHeight = convertDimensionToNumber(
-    receivedTooltipHeight,
-    screenDims.height,
   );
   // The following are point coordinates: [x, y]
   const center = [x + width / 2, y + height / 2];
@@ -98,8 +91,8 @@ const getTooltipCoordinate = (
   // Deslocate the coordinates in the direction of the quadrant.
   const directionCorrection = [[-1, -1], [1, -1], [1, 1], [-1, 1]];
   const deslocateReferencePoint = [
-    [-tooltipWidth, -tooltipHeight],
-    [0, -tooltipHeight],
+    [-tooltipWidth, 0],
+    [0, 0],
     [0, 0],
     [-tooltipWidth, 0],
   ];

@@ -111,7 +111,6 @@ class Tooltip extends React.Component<Props, State> {
       ScreenWidth,
       ScreenHeight,
       width,
-      height,
       withPointer,
     );
 
