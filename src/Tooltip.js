@@ -115,11 +115,10 @@ class Tooltip extends React.Component<Props, State> {
       withPointer,
     );
 
-    return {
+    const tooltipStyle = {
       position: 'absolute',
       left: I18nManager.isRTL ? null : x,
       right: I18nManager.isRTL ? x : null,
-      top: y,
       width,
       height,
       backgroundColor,
@@ -132,12 +131,20 @@ class Tooltip extends React.Component<Props, State> {
       padding: 10,
       ...containerStyle,
     };
+
+    const pastMiddleLine = yOffset > y;
+    if (pastMiddleLine) {
+      tooltipStyle.bottom = ScreenHeight - y;
+    } else {
+      tooltipStyle.top = y;
+    }
+
+    return tooltipStyle;
   };
 
-  renderPointer = tooltipY => {
+  renderPointer = pastMiddleLine => {
     const { yOffset, xOffset, elementHeight, elementWidth } = this.state;
     const { backgroundColor, pointerColor, pointerStyle } = this.props;
-    const pastMiddleLine = yOffset > tooltipY;
 
     return (
       <View
@@ -167,7 +174,7 @@ class Tooltip extends React.Component<Props, State> {
     const { yOffset, xOffset, elementWidth, elementHeight } = this.state;
     const tooltipStyle = this.getTooltipStyle();
     return (
-      <View>
+      <React.Fragment>
         <View
           style={{
             position: 'absolute',
@@ -182,9 +189,9 @@ class Tooltip extends React.Component<Props, State> {
         >
           {this.props.children}
         </View>
-        {withPointer && this.renderPointer(tooltipStyle.top)}
+        {withPointer && this.renderPointer(!tooltipStyle.top)}
         <View style={tooltipStyle}>{popover}</View>
-      </View>
+      </React.Fragment>
     );
   };
 
