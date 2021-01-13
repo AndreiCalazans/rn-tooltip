@@ -2,6 +2,8 @@
 import { Dimensions } from 'react-native';
 
 function convertDimensionToNumber(dimension, screenDimension) {
+  if (dimension === 'auto') return 0;
+
   if (typeof dimension === 'string' && dimension.includes('%')) {
     const decimal = Number(dimension.replace(/%/, '')) / 100;
     return decimal * screenDimension;
