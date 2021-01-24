@@ -53,89 +53,87 @@ exports[`Tooltip component should display tooltip on longPress 1`] = `
         }
       }
     >
-      <View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "height": 0,
+            "left": 0,
+            "overflow": "visible",
+            "position": "absolute",
+            "right": null,
+            "top": 0,
+            "width": 0,
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+        >
+          Press me
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "left": -7.5,
+            "position": "absolute",
+            "right": null,
+            "top": -2,
+          }
+        }
+      >
         <View
           style={
-            Object {
-              "backgroundColor": "transparent",
-              "height": 0,
-              "left": 0,
-              "overflow": "visible",
-              "position": "absolute",
-              "right": null,
-              "top": 0,
-              "width": 0,
-            }
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "borderBottomColor": "white",
+                "borderBottomWidth": 15,
+                "borderLeftColor": "transparent",
+                "borderLeftWidth": 8,
+                "borderRightColor": "transparent",
+                "borderRightWidth": 8,
+                "borderStyle": "solid",
+                "height": 0,
+                "width": 0,
+              },
+              Object {
+                "borderBottomColor": "#617080",
+              },
+              Object {},
+            ]
           }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-          >
-            Press me
-          </Text>
-        </View>
-        <View
-          style={
-            Object {
-              "left": -7.5,
-              "position": "absolute",
-              "right": null,
-              "top": -2,
-            }
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#617080",
+            "borderRadius": 10,
+            "display": "flex",
+            "flex": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "left": -17.999,
+            "padding": 10,
+            "position": "absolute",
+            "right": null,
+            "top": 10,
+            "width": 200,
           }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                  "borderBottomColor": "white",
-                  "borderBottomWidth": 15,
-                  "borderLeftColor": "transparent",
-                  "borderLeftWidth": 8,
-                  "borderRightColor": "transparent",
-                  "borderRightWidth": 8,
-                  "borderStyle": "solid",
-                  "height": 0,
-                  "width": 0,
-                },
-                Object {
-                  "borderBottomColor": "#617080",
-                },
-                Object {},
-              ]
-            }
-          />
-        </View>
-        <View
-          style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#617080",
-              "borderRadius": 10,
-              "display": "flex",
-              "flex": 1,
-              "height": 100,
-              "justifyContent": "center",
-              "left": -17.999,
-              "padding": 10,
-              "position": "absolute",
-              "right": null,
-              "top": 10,
-              "width": 200,
-            }
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-          >
-            Info here
-          </Text>
-        </View>
+          Info here
+        </Text>
       </View>
     </View>
   </Modal>
@@ -195,89 +193,87 @@ exports[`Tooltip component should display tooltip when no actionType is provided
         }
       }
     >
-      <View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "height": 0,
+            "left": 0,
+            "overflow": "visible",
+            "position": "absolute",
+            "right": null,
+            "top": 0,
+            "width": 0,
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+        >
+          Press me
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "left": -7.5,
+            "position": "absolute",
+            "right": null,
+            "top": -2,
+          }
+        }
+      >
         <View
           style={
-            Object {
-              "backgroundColor": "transparent",
-              "height": 0,
-              "left": 0,
-              "overflow": "visible",
-              "position": "absolute",
-              "right": null,
-              "top": 0,
-              "width": 0,
-            }
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "borderBottomColor": "white",
+                "borderBottomWidth": 15,
+                "borderLeftColor": "transparent",
+                "borderLeftWidth": 8,
+                "borderRightColor": "transparent",
+                "borderRightWidth": 8,
+                "borderStyle": "solid",
+                "height": 0,
+                "width": 0,
+              },
+              Object {
+                "borderBottomColor": "#617080",
+              },
+              Object {},
+            ]
           }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-          >
-            Press me
-          </Text>
-        </View>
-        <View
-          style={
-            Object {
-              "left": -7.5,
-              "position": "absolute",
-              "right": null,
-              "top": -2,
-            }
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#617080",
+            "borderRadius": 10,
+            "display": "flex",
+            "flex": 1,
+            "height": 100,
+            "justifyContent": "center",
+            "left": -17.999,
+            "padding": 10,
+            "position": "absolute",
+            "right": null,
+            "top": 10,
+            "width": 200,
           }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                  "borderBottomColor": "white",
-                  "borderBottomWidth": 15,
-                  "borderLeftColor": "transparent",
-                  "borderLeftWidth": 8,
-                  "borderRightColor": "transparent",
-                  "borderRightWidth": 8,
-                  "borderStyle": "solid",
-                  "height": 0,
-                  "width": 0,
-                },
-                Object {
-                  "borderBottomColor": "#617080",
-                },
-                Object {},
-              ]
-            }
-          />
-        </View>
-        <View
-          style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#617080",
-              "borderRadius": 10,
-              "display": "flex",
-              "flex": 1,
-              "height": 100,
-              "justifyContent": "center",
-              "left": -17.999,
-              "padding": 10,
-              "position": "absolute",
-              "right": null,
-              "top": 10,
-              "width": 200,
-            }
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-          >
-            Info here
-          </Text>
-        </View>
+          Info here
+        </Text>
       </View>
     </View>
   </Modal>
@@ -337,89 +333,87 @@ exports[`Tooltip component should render without issues 1`] = `
         }
       }
     >
-      <View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "height": 0,
+            "left": 0,
+            "overflow": "visible",
+            "position": "absolute",
+            "right": null,
+            "top": 0,
+            "width": 0,
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+        >
+          Press me
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "left": -7.5,
+            "position": "absolute",
+            "right": null,
+            "top": -2,
+          }
+        }
+      >
         <View
           style={
-            Object {
-              "backgroundColor": "transparent",
-              "height": 0,
-              "left": 0,
-              "overflow": "visible",
-              "position": "absolute",
-              "right": null,
-              "top": 0,
-              "width": 0,
-            }
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "borderBottomColor": "white",
+                "borderBottomWidth": 15,
+                "borderLeftColor": "transparent",
+                "borderLeftWidth": 8,
+                "borderRightColor": "transparent",
+                "borderRightWidth": 8,
+                "borderStyle": "solid",
+                "height": 0,
+                "width": 0,
+              },
+              Object {
+                "borderBottomColor": "#617080",
+              },
+              Object {},
+            ]
           }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-          >
-            Press me
-          </Text>
-        </View>
-        <View
-          style={
-            Object {
-              "left": -7.5,
-              "position": "absolute",
-              "right": null,
-              "top": -2,
-            }
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#617080",
+            "borderRadius": 10,
+            "display": "flex",
+            "flex": 1,
+            "height": 40,
+            "justifyContent": "center",
+            "left": -17.999,
+            "padding": 10,
+            "position": "absolute",
+            "right": null,
+            "top": 10,
+            "width": 150,
           }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                  "borderBottomColor": "white",
-                  "borderBottomWidth": 15,
-                  "borderLeftColor": "transparent",
-                  "borderLeftWidth": 8,
-                  "borderRightColor": "transparent",
-                  "borderRightWidth": 8,
-                  "borderStyle": "solid",
-                  "height": 0,
-                  "width": 0,
-                },
-                Object {
-                  "borderBottomColor": "#617080",
-                },
-                Object {},
-              ]
-            }
-          />
-        </View>
-        <View
-          style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#617080",
-              "borderRadius": 10,
-              "display": "flex",
-              "flex": 1,
-              "height": 40,
-              "justifyContent": "center",
-              "left": -17.999,
-              "padding": 10,
-              "position": "absolute",
-              "right": null,
-              "top": 10,
-              "width": 150,
-            }
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-          >
-            Info here
-          </Text>
-        </View>
+          Info here
+        </Text>
       </View>
     </View>
   </Modal>
