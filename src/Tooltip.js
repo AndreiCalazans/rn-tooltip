@@ -66,12 +66,22 @@ class Tooltip extends React.Component<Props, State> {
     });
   };
 
+  showTooltip = () => {
+    this.setState({ isVisible: true });
+  }
+
+  hideTooltip = () => {
+    this.setState({ isVisible: false });
+  }
+
   wrapWithAction = (actionType, children) => {
     switch (actionType) {
       case 'press':
         return (
           <TouchableOpacity
             onPress={this.toggleTooltip}
+            onMouseEnter={this.showTooltip}
+            onMouseLeave={this.hideTooltip}
             activeOpacity={1}
             {...this.props.toggleWrapperProps}
           >
@@ -82,6 +92,8 @@ class Tooltip extends React.Component<Props, State> {
         return (
           <TouchableOpacity
             onLongPress={this.toggleTooltip}
+            onMouseEnter={this.showTooltip}
+            onMouseLeave={this.hideTooltip}
             activeOpacity={1}
             {...this.props.toggleWrapperProps}
           >
@@ -173,7 +185,7 @@ class Tooltip extends React.Component<Props, State> {
     const { yOffset, xOffset, elementWidth, elementHeight } = this.state;
     const tooltipStyle = this.getTooltipStyle();
     return (
-      <React.Fragment>
+      <TouchableOpacity disabled onMouseLeave={this.hideTooltip}>
         <View
           style={{
             position: 'absolute',
@@ -190,7 +202,7 @@ class Tooltip extends React.Component<Props, State> {
         </View>
         {withPointer && this.renderPointer(!tooltipStyle.top)}
         <View style={tooltipStyle}>{popover}</View>
-      </React.Fragment>
+      </TouchableOpacity>
     );
   };
 
@@ -235,6 +247,8 @@ class Tooltip extends React.Component<Props, State> {
           <TouchableOpacity
             style={styles.container(withOverlay, overlayColor)}
             onPress={this.toggleTooltip}
+            onMouseEnter={this.showTooltip}
+            onMouseLeave={this.hideTooltip}
             activeOpacity={1}
           >
             {this.renderContent(true)}
@@ -275,8 +289,8 @@ Tooltip.defaultProps = {
   containerStyle: {},
   pointerStyle: {},
   backgroundColor: '#617080',
-  onClose: () => {},
-  onOpen: () => {},
+  onClose: () => { },
+  onOpen: () => { },
 };
 
 const styles = {
