@@ -11,7 +11,12 @@ import {
 import PropTypes from 'prop-types';
 
 import Triangle from './Triangle';
-import { ScreenWidth, ScreenHeight, isIOS } from './helpers';
+import {
+  ScreenWidth,
+  ScreenHeight,
+  ActualScreenHeight,
+  isIOS,
+} from './helpers';
 import getTooltipCoordinate from './getTooltipCoordinate';
 
 const ViewPropTypes = RNViewPropTypes || View.propTypes;
@@ -133,7 +138,7 @@ class Tooltip extends React.Component<Props, State> {
 
     const pastMiddleLine = yOffset > y;
     if (pastMiddleLine) {
-      tooltipStyle.bottom = ScreenHeight - y;
+      tooltipStyle.bottom = ActualScreenHeight - y;
     } else {
       tooltipStyle.top = y;
     }

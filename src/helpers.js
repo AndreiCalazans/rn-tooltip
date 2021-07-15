@@ -1,10 +1,19 @@
 //  @flow
 
-import { Platform, Dimensions } from 'react-native';
+import { Platform, Dimensions, StatusBar } from 'react-native';
 
 const Screen = Dimensions.get('window');
 export const ScreenWidth: number = Screen.width;
 export const ScreenHeight: number = Screen.height;
+
+export const ActualScreenHeight = Platform.select({
+  ios: ScreenHeight,
+  android:
+    StatusBar.currentHeight > 24
+      ? ScreenHeight
+      : ScreenHeight - StatusBar.currentHeight,
+});
+
 export const isIOS = Platform.OS === 'ios';
 
 export const Colors = {
