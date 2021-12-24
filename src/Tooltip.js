@@ -39,7 +39,7 @@ type Props = {
   backgroundColor: string,
   highlightColor: string,
   toggleWrapperProps: {},
-  actionType: 'press' | 'longPress' | 'none',
+  actionType: 'press' | 'longPress' | 'none' | 'render',
 };
 
 class Tooltip extends React.Component<Props, State> {
@@ -88,6 +88,9 @@ class Tooltip extends React.Component<Props, State> {
             {children}
           </TouchableOpacity>
         );
+      case 'render':
+        toggleTooltip()
+        return children;
       default:
         return children;
     }
