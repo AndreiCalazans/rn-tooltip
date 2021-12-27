@@ -4,7 +4,7 @@
 
 # rn-tooltip
 
-*Simple, lightwweight and **blazing fast** react native tooltip*
+*Simple, lightweight and **blazing fast** react native tooltip*
 
 
 <img src="./tooltipExample.gif" width='250' />
