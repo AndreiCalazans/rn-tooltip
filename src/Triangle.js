@@ -4,12 +4,12 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
-// type Props = {
-//   style: any,
-//   isDown: boolean,
-// };
+type Props = {
+  style: any,
+  isDown: boolean,
+};
 
-const Triangle = ({ style, isDown }) => (
+const Triangle = ({ style, isDown }: Props) => (
   <View style={[styles.triangle, style, isDown ? styles.down : {}]} />
 );
 Triangle.propTypes = {
