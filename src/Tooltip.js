@@ -23,25 +23,25 @@ import getTooltipCoordinate from './getTooltipCoordinate';
 //   elementHeight: number,
 // };
 
-// type Props = {
-//   withPointer: boolean,
-//   popover: React.Element,
-//   height: number | string,
-//   width: number | string,
-//   containerStyle: any,
-//   pointerColor: string,
-//   pointerStyle: {},
-//   onClose: () => void,
-//   onOpen: () => void,
-//   withOverlay: boolean,
-//   overlayColor: string,
-//   backgroundColor: string,
-//   highlightColor: string,
-//   toggleWrapperProps: {},
-//   actionType: 'press' | 'longPress' | 'none',
-// };
+type Props = {
+  withPointer: boolean,
+  popover: React.Element,
+  height: number | string,
+  width: number | string,
+  containerStyle: any,
+  pointerColor: string,
+  pointerStyle: {},
+  onClose: () => void,
+  onOpen: () => void,
+  withOverlay: boolean,
+  overlayColor: string,
+  backgroundColor: string,
+  highlightColor: string,
+  toggleWrapperProps: {},
+  actionType: 'press' | 'longPress' | 'none',
+};
 
-const Tooltip = React.forwardRef((props, ref) => {
+const Tooltip = React.forwardRef((props: Props, ref) => {
   const { onClose, withOverlay, onOpen, overlayColor } = props;
 
   React.useImperativeHandle(ref, () => ({
