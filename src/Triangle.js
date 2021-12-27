@@ -2,15 +2,20 @@
 
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
+import PropTypes from 'prop-types';
 
-type Props = {
-  style: any,
-  isDown: boolean,
-};
+// type Props = {
+//   style: any,
+//   isDown: boolean,
+// };
 
-const Triangle = ({ style, isDown }: Props) => (
+const Triangle = ({ style, isDown }) => (
   <View style={[styles.triangle, style, isDown ? styles.down : {}]} />
 );
+Triangle.propTypes = {
+  isDown: PropTypes.bool,
+  style: PropTypes.object,
+};
 
 const styles = StyleSheet.create({
   down: {
