@@ -13,10 +13,15 @@ function convertDimensionToNumber(dimension, screenDimension) {
   return Number(dimension);
 }
 
-const getArea = (a, b) => a * b;
+const getArea = (a: number, b: number): number => a * b;
 
-const getPointDistance = (a, b) =>
+const getPointDistance = (a: number[], b: number[]): number =>
   Math.sqrt(Math.pow(a[0] - b[0], 2) + Math.pow(a[1] - b[1], 2));
+
+type Coord = {
+  x: number,
+  y: number,
+};
 
 /*
   ~Tooltip coordinate system:~
@@ -36,15 +41,15 @@ const getPointDistance = (a, b) =>
 */
 
 const getTooltipCoordinate = (
-  x,
-  y,
-  width,
-  height,
-  ScreenWidth,
-  ScreenHeight,
-  receivedTooltipWidth,
-  withPointer,
-) => {
+  x: number,
+  y: number,
+  width: number,
+  height: number,
+  ScreenWidth: number,
+  ScreenHeight: number,
+  receivedTooltipWidth: number | string,
+  withPointer: boolean,
+): Coord => {
   const screenDims = Dimensions.get('screen');
 
   const tooltipWidth = convertDimensionToNumber(
@@ -65,7 +70,12 @@ const getTooltipCoordinate = (
   const vFour = getPointDistance(center, pFour);
 
   // Quadrant areas.
-  const areas = [
+  type Areas = {
+    area: number,
+    id: number,
+  };
+
+  const areas: Areas[] = [
     getArea(vOne, vFour),
     getArea(vOne, vTwo),
     getArea(vTwo, vThree),
@@ -110,12 +120,12 @@ const getTooltipCoordinate = (
 };
 
 const constraintX = (
-  newX,
-  qIndex,
-  x,
-  ScreenWidth,
-  tooltipWidth,
-) => {
+  newX: number,
+  qIndex: number,
+  x: number,
+  ScreenWidth: number,
+  tooltipWidth: number,
+): number => {
   switch (qIndex) {
     // 0 and 3 are the left side quadrants.
     case 0:
