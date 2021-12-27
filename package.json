@@ -13,8 +13,6 @@
     "check:commit": "yarn flow && npm run test && lint-staged",
     "check:commit_lazy": "yarn flow && lint-staged",
     "prettier": "prettier --write --single-quote true --trailing-comma all --print-width 80",
-    "precommit": "lint-staged",
-    "commitmsg": "commitlint -e $GIT_PARAMS",
     "prettier:all": "prettier --write --single-quote true --trailing-comma all --print-width 80 --write 'src/**/*.js'",
     "prettier:check": "prettier -c --single-quote true --trailing-comma all --print-width 80 'src/**/*.js'",
     "flow-init": "node_modules/.bin/flow init",

@@ -8,7 +8,7 @@ import {
   ViewPropTypes as RNViewPropTypes,
   I18nManager,
 } from 'react-native';
-import ModalWeb from "modal-react-native-web";
+import ModalWeb from 'modal-react-native-web';
 import PropTypes from 'prop-types';
 
 import Triangle from './Triangle';
@@ -23,25 +23,25 @@ import getTooltipCoordinate from './getTooltipCoordinate';
 //   elementHeight: number,
 // };
 
-type Props = {
-  withPointer: boolean,
-  popover: React.Element,
-  height: number | string,
-  width: number | string,
-  containerStyle: any,
-  pointerColor: string,
-  pointerStyle: {},
-  onClose: () => void,
-  onOpen: () => void,
-  withOverlay: boolean,
-  overlayColor: string,
-  backgroundColor: string,
-  highlightColor: string,
-  toggleWrapperProps: {},
-  actionType: 'press' | 'longPress' | 'none',
-};
+// type Props = {
+//   withPointer: boolean,
+//   popover: React.Element,
+//   height: number | string,
+//   width: number | string,
+//   containerStyle: any,
+//   pointerColor: string,
+//   pointerStyle: {},
+//   onClose: () => void,
+//   onOpen: () => void,
+//   withOverlay: boolean,
+//   overlayColor: string,
+//   backgroundColor: string,
+//   highlightColor: string,
+//   toggleWrapperProps: {},
+//   actionType: 'press' | 'longPress' | 'none',
+// };
 
-const Tooltip = React.forwardRef((props: Props, ref) => {
+const Tooltip = React.forwardRef((props, ref) => {
   const { onClose, withOverlay, onOpen, overlayColor } = props;
 
   React.useImperativeHandle(ref, () => ({
@@ -51,7 +51,7 @@ const Tooltip = React.forwardRef((props: Props, ref) => {
         onClose && onClose();
       }
       setIsVisible(!isVisible);
-    }
+    },
   }));
 
   const [isVisible, setIsVisible] = React.useState(false);
@@ -67,12 +67,12 @@ const Tooltip = React.forwardRef((props: Props, ref) => {
 
   const renderedElement = React.useRef(null);
 
-  const ModalComponent = React.useMemo(()=> {
+  const ModalComponent = React.useMemo(() => {
     if (isWeb) {
       return ModalWeb;
     }
     return Modal;
-  },[])
+  }, []);
 
   const toggleTooltip = () => {
     getElementPosition();
@@ -183,8 +183,7 @@ const Tooltip = React.forwardRef((props: Props, ref) => {
   const renderContent = withTooltip => {
     const { popover, withPointer, highlightColor, actionType } = props;
 
-    if (!withTooltip)
-      return wrapWithAction(actionType, props.children);
+    if (!withTooltip) return wrapWithAction(actionType, props.children);
 
     const { yOffset, xOffset, elementWidth, elementHeight } = state;
     const tooltipStyle = getTooltipStyle();
@@ -215,14 +214,14 @@ const Tooltip = React.forwardRef((props: Props, ref) => {
     const timeout = setTimeout(getElementPosition, 500);
     return () => {
       clearTimeout(timeout);
-    }
+    };
   }, []);
 
   const getElementPosition = () => {
     renderedElement &&
       renderedElement.current.measureInWindow(
         (pageOffsetX, pageOffsetY, width, height) => {
-          setState((prevState) => ({
+          setState(prevState => ({
             ...prevState,
             xOffset: pageOffsetX,
             yOffset: pageOffsetY,
@@ -233,29 +232,29 @@ const Tooltip = React.forwardRef((props: Props, ref) => {
       );
   };
 
-    return (
-      <View collapsable={false} ref={renderedElement}>
-        {renderContent(false)}
-        <ModalComponent
-          animationType="fade"
-          visible={isVisible}
-          transparent
-          onDismiss={onClose}
-          onShow={onOpen}
-          onRequestClose={onClose}
-          width={props.width}
-          ariaHideApp={false}
+  return (
+    <View collapsable={false} ref={renderedElement}>
+      {renderContent(false)}
+      <ModalComponent
+        animationType="fade"
+        visible={isVisible}
+        transparent
+        onDismiss={onClose}
+        onShow={onOpen}
+        onRequestClose={onClose}
+        width={props.width}
+        ariaHideApp={false}
+      >
+        <TouchableOpacity
+          style={styles.container(withOverlay, overlayColor)}
+          onPress={toggleTooltip}
+          activeOpacity={1}
         >
-          <TouchableOpacity
-            style={styles.container(withOverlay, overlayColor)}
-            onPress={toggleTooltip}
-            activeOpacity={1}
-          >
-            {renderContent(true)}
-          </TouchableOpacity>
-        </ModalComponent>
-      </View>
-    );
+          {renderContent(true)}
+        </TouchableOpacity>
+      </ModalComponent>
+    </View>
+  );
 });
 
 Tooltip.propTypes = {
