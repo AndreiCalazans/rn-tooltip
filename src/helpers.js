@@ -3,11 +3,11 @@
 import { Platform, Dimensions } from 'react-native';
 
 const Screen = Dimensions.get('window');
-export const ScreenWidth = Screen.width;
-export const ScreenHeight = Screen.height;
-export const isIOS = Platform.OS === 'ios';
-export const isAndroid = Platform.OS === 'android';
-export const isWeb = Platform.OS === 'web';
+export const ScreenWidth: number = Screen.width;
+export const ScreenHeight: number = Screen.height;
+export const isIOS: string = Platform.OS === 'ios';
+export const isAndroid: string = Platform.OS === 'android';
+export const isWeb: string = Platform.OS === 'web';
 
 export const Colors = {
   darkergray: '#617080',
