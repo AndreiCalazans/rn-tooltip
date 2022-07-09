@@ -133,12 +133,12 @@ class Tooltip extends React.Component<Props, State> {
 
     const pastMiddleLine = yOffset > y;
     if (pastMiddleLine) {
-      tooltipStyle.bottom = ScreenHeight - y;
+      tooltipStyle.top = y - height;
     } else {
       tooltipStyle.top = y;
     }
 
-    return tooltipStyle;
+    return { tooltipStyle, pastMiddleLine };
   };
 
   renderPointer = pastMiddleLine => {
@@ -171,7 +171,7 @@ class Tooltip extends React.Component<Props, State> {
       return this.wrapWithAction(actionType, this.props.children);
 
     const { yOffset, xOffset, elementWidth, elementHeight } = this.state;
-    const tooltipStyle = this.getTooltipStyle();
+    const { pastMiddleLine, tooltipStyle } = this.getTooltipStyle();
     return (
       <React.Fragment>
         <View
@@ -188,7 +188,7 @@ class Tooltip extends React.Component<Props, State> {
         >
           {this.props.children}
         </View>
-        {withPointer && this.renderPointer(!tooltipStyle.top)}
+        {withPointer && this.renderPointer(pastMiddleLine)}
         <View style={tooltipStyle}>{popover}</View>
       </React.Fragment>
     );
@@ -275,8 +275,8 @@ Tooltip.defaultProps = {
   containerStyle: {},
   pointerStyle: {},
   backgroundColor: '#617080',
-  onClose: () => {},
-  onOpen: () => {},
+  onClose: () => { },
+  onOpen: () => { },
 };
 
 const styles = {
