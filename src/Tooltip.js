@@ -132,9 +132,9 @@ class Tooltip extends React.Component<Props, State> {
     };
 
     const pastMiddleLine = yOffset > y;
-    if (typeof height !== "number" && pastMiddleLine) {
+    if (typeof height !== 'number' && pastMiddleLine) {
       tooltipStyle.bottom = ScreenHeight - y;
-    } else if (typeof height === "number" && pastMiddleLine) {
+    } else if (typeof height === 'number' && pastMiddleLine) {
       tooltipStyle.top = y - height;
     } else {
       tooltipStyle.top = y;
@@ -277,8 +277,8 @@ Tooltip.defaultProps = {
   containerStyle: {},
   pointerStyle: {},
   backgroundColor: '#617080',
-  onClose: () => { },
-  onOpen: () => { },
+  onClose: () => {},
+  onOpen: () => {},
 };
 
 const styles = {

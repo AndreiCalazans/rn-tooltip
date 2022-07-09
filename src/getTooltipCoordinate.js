@@ -89,7 +89,12 @@ const getTooltipCoordinate = (
   const dY = height / 2;
 
   // Deslocate the coordinates in the direction of the quadrant.
-  const directionCorrection = [[-1, -1], [1, -1], [1, 1], [-1, 1]];
+  const directionCorrection = [
+    [-1, -1],
+    [1, -1],
+    [1, 1],
+    [-1, 1],
+  ];
   const deslocateReferencePoint = [
     [-tooltipWidth, 0],
     [0, 0],
