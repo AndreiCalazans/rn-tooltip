@@ -1,7 +1,7 @@
 //  @flow
 
 import * as React from 'react';
-import { TouchableOpacity, Modal, View, I18nManager } from 'react-native';
+import { TouchableOpacity, Modal, View, I18nManager, StatusBar } from 'react-native';
 import { ViewPropTypes as RNViewPropTypes } from 'deprecated-react-native-prop-types';
 import PropTypes from 'prop-types';
 
@@ -47,18 +47,27 @@ class Tooltip extends React.Component<Props, State> {
   };
 
   renderedElement;
-  timeout;
 
   toggleTooltip = () => {
-    const { onClose } = this.props;
-    this.getElementPosition();
-    this.setState(prevState => {
-      if (prevState.isVisible && !isIOS) {
-        onClose && onClose();
-      }
-
-      return { isVisible: !prevState.isVisible };
-    });
+    this.renderedElement &&
+      this.renderedElement.measureInWindow(
+        (pageOffsetX, pageOffsetY, width, height) => {
+          const { onClose } = this.props;
+          console.log('measureInWindow', pageOffsetX, pageOffsetY, width, height);
+          this.setState(prevState => {
+            if (prevState.isVisible && !isIOS) {
+              onClose && onClose();
+            }
+            return { 
+              isVisible: !prevState.isVisible,
+              xOffset: pageOffsetX,
+              yOffset: pageOffsetY,
+              elementWidth: width,
+              elementHeight: height,
+            };
+          });
+        },
+      );
   };
 
   wrapWithAction = (actionType, children) => {
@@ -98,6 +107,8 @@ class Tooltip extends React.Component<Props, State> {
       containerStyle,
     } = this.props;
 
+    const statusBarHeight = isIOS ? 0 : StatusBar.currentHeight;
+
     const { x, y } = getTooltipCoordinate(
       xOffset,
       yOffset,
@@ -107,6 +118,7 @@ class Tooltip extends React.Component<Props, State> {
       ScreenHeight,
       width,
       withPointer,
+      statusBarHeight,
     );
 
     const tooltipStyle = {
@@ -128,7 +140,7 @@ class Tooltip extends React.Component<Props, State> {
 
     const pastMiddleLine = yOffset > y;
     if (typeof height !== 'number' && pastMiddleLine) {
-      tooltipStyle.bottom = ScreenHeight - y;
+      tooltipStyle.bottom = ScreenHeight - y - statusBarHeight;
     } else if (typeof height === 'number' && pastMiddleLine) {
       tooltipStyle.top = y - height;
     } else {
@@ -146,7 +158,7 @@ class Tooltip extends React.Component<Props, State> {
       <View
         style={{
           position: 'absolute',
-          top: pastMiddleLine ? yOffset - 13 : yOffset + elementHeight - 2,
+          top: pastMiddleLine ? yOffset - 21 : yOffset + elementHeight - 2,
           left: I18nManager.isRTL ? null : xOffset + elementWidth / 2 - 7.5,
           right: I18nManager.isRTL ? xOffset + elementWidth / 2 - 7.5 : null,
         }}
@@ -161,6 +173,7 @@ class Tooltip extends React.Component<Props, State> {
       </View>
     );
   };
+
   renderContent = withTooltip => {
     const { popover, withPointer, highlightColor, actionType } = this.props;
 
@@ -191,24 +204,22 @@ class Tooltip extends React.Component<Props, State> {
     );
   };
 
-  componentDidMount() {
-    // wait to compute onLayout values.
-    this.timeout = setTimeout(this.getElementPosition, 500);
-  }
-
-  componentWillUnmount() {
-    clearTimeout(this.timeout);
-  }
-
-  getElementPosition = () => {
+  measureAndSetVisabilityState = () => {
     this.renderedElement &&
       this.renderedElement.measureInWindow(
         (pageOffsetX, pageOffsetY, width, height) => {
-          this.setState({
-            xOffset: pageOffsetX,
-            yOffset: pageOffsetY,
-            elementWidth: width,
-            elementHeight: height,
+          const { onClose } = this.props;
+          this.setState(prevState => {
+            if (prevState.isVisible && !isIOS) {
+              onClose && onClose();
+            }
+            return { 
+              isVisible: !prevState.isVisible,
+              xOffset: pageOffsetX,
+              yOffset: pageOffsetY,
+              elementWidth: width,
+              elementHeight: height,
+            };
           });
         },
       );
