@@ -139,13 +139,7 @@ class Tooltip extends React.Component<Props, State> {
     };
 
     const pastMiddleLine = yOffset > y;
-    if (typeof height !== 'number' && pastMiddleLine) {
-      tooltipStyle.bottom = ScreenHeight - y - statusBarHeight;
-    } else if (typeof height === 'number' && pastMiddleLine) {
-      tooltipStyle.top = y - height;
-    } else {
-      tooltipStyle.top = y;
-    }
+    tooltipStyle.top = pastMiddleLine ? yOffset - 76 : y;
 
     return { tooltipStyle, pastMiddleLine };
   };
