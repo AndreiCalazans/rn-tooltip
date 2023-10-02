@@ -9,6 +9,7 @@
   },
   "author": "AndreiCalazans <andreixoc@hotmail.com>",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "check:commit": "yarn flow && npm run test && lint-staged",
     "check:commit_lazy": "yarn flow && lint-staged",
