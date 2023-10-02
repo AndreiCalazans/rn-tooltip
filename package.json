@@ -1,7 +1,7 @@
 {
   "name": "rn-tooltip-android-fixes",
-  "version": "3.0.8",
-  "main": "src/Tooltip.mjs",
+  "version": "3.0.9",
+  "main": "src/Tooltip.js",
   "homepage": "https://github.com/AndreiCalazans/rn-tooltip#readme",
   "repository": {
     "type": "git",
@@ -9,7 +9,6 @@
   },
   "author": "AndreiCalazans <andreixoc@hotmail.com>",
   "license": "MIT",
-  "type": "module",
   "scripts": {
     "check:commit": "yarn flow && npm run test && lint-staged",
     "check:commit_lazy": "yarn flow && lint-staged",
