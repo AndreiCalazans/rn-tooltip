@@ -53,7 +53,6 @@ class Tooltip extends React.Component<Props, State> {
       this.renderedElement.measureInWindow(
         (pageOffsetX, pageOffsetY, width, height) => {
           const { onClose } = this.props;
-          console.log('measureInWindow', pageOffsetX, pageOffsetY, width, height);
           this.setState(prevState => {
             if (prevState.isVisible && !isIOS) {
               onClose && onClose();
