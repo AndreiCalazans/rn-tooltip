@@ -1,6 +1,6 @@
 {
   "name": "rn-tooltip-android-fixes",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "main": "src/Tooltip.js",
   "homepage": "https://github.com/AndreiCalazans/rn-tooltip#readme",
   "repository": {
