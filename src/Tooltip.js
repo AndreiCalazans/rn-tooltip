@@ -19,7 +19,7 @@ type State = {
   elementHeight: number,
 };
 
-type Props = {
+export type Props = {
   withPointer: boolean,
   popover: React.Element,
   height: number | string,
